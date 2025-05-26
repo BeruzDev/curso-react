@@ -1,1 +1,1 @@
-Curso React Midudev
+Curso de React impartido por MiduDev.
