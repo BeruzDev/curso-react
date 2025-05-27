@@ -5,7 +5,6 @@
 # Aprendiendo React ⚛️
 
 Curso para aprender **React** basado en proyectos.
-**[Todos los miércoles a las 18PM 🇪🇸 en Twitch](https://twitch.tv/midudev)**
 </div>
 
 ## 📹 Videos con las clases
