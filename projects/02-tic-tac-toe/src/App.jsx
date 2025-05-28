@@ -8,8 +8,7 @@ import { WinnerModal } from './components/WinnerModal.jsx'
 function App() {
   const [board, setBoard] = useState(() => {
     const boardFromStorage = window.localStorage.getItem('board')
-    return boardFromStorage ? JSON.parse(boardFromStorage) :
-    Array(9).fill(null)
+    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null)
   })
   const [turn, setTurn] = useState(() => {
     const turnFromStorage = window.localStorage.getItem('turn')
@@ -38,7 +37,7 @@ function App() {
     setTurn(newTurn)
     window.localStorage.setItem('board', JSON.stringify(newBoard))
     window.localStorage.setItem('turn', newTurn)
-    
+
     const newWinner = checkWinner(newBoard)
     if (newWinner) {
       confetti()
@@ -67,10 +66,7 @@ function App() {
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
       </section>
 
-      <WinnerModal 
-        resetGame={resetGame}
-        winner={winner}
-      />
+      <WinnerModal resetGame={resetGame} winner={winner} />
     </main>
   )
 }
