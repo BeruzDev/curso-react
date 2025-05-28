@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 import { WINNER_COMBOS } from '../constants.js'
 
 export const checkWinnerFrom = (boardToCheck) => {
   // revisamos todas las combinaciones ganadoras
   // para ver si X u O ganó
+=======
+import { WINNER_COMBOS } from '../constants'
+
+export const checkWinner = (boardToCheck) => {
+>>>>>>> clase-2
   for (const combo of WINNER_COMBOS) {
     const [a, b, c] = combo
     if (
@@ -13,6 +19,7 @@ export const checkWinnerFrom = (boardToCheck) => {
       return boardToCheck[a]
     }
   }
+<<<<<<< HEAD
   // si no hay ganador
   return null
 }
@@ -23,3 +30,7 @@ export const checkEndGame = (newBoard) => {
   // en el tablero
   return newBoard.every((square) => square !== null)
 }
+=======
+  return null
+}
+>>>>>>> clase-2

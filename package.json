@@ -16,5 +16,11 @@
     "url": "https://github.com/BeruzDev/curso-react/issues"
   },
   "homepage": "https://github.com/BeruzDev/curso-react#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "standard": "^17.1.2"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
 }

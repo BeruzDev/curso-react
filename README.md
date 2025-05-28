@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center">
 
 <img alt="Curso de React js desde cero y con proyectos" src="https://user-images.githubusercontent.com/1561955/212888793-fd719e58-b0c2-4d03-9c55-38e3e79ebc17.png" width="500" />
@@ -43,3 +44,6 @@ Curso para aprender **React** basado en proyectos.
 | `12` | Sistema de comentarios con React Query | [Ver](projects/12-comments-react-query) | [Visitar](https://midu-react-12.surge.sh) |
 | `13` | JavaScript Quiz con Zustand y TypeScript | [Ver](projects/13-javascript-quiz-con-zustand/) | [Visitar](https://midu-react-13.surge.sh) |
 | `14` | Hacker News con TypeScript y SWR | [Ver](projects/14-hacker-news-prueba-tecnica) | [Visitar](https://midu-react-14.surge.sh) |
+=======
+Curso React impartido por MIDUDEV
+>>>>>>> clase-2

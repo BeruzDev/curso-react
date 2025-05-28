@@ -9,6 +9,10 @@
   height: 6em;
   padding: 1.5em;
   will-change: filter;
+<<<<<<< HEAD
+=======
+  transition: filter 300ms;
+>>>>>>> clase-2
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
