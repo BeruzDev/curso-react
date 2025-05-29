@@ -1,0 +1,50 @@
+# Prueba tecnica React Junior
+
+APIs: 
+
+- Fact Random: https://catfact.ninja/fact
+- Imagen random: https://cataas.com/cat/says/hello
+
+Recupera un hecho aleatorio de gatos de la primera API y muestra una imagen de un gato con la primera palabra del hecho recuperado usando la segund API.
+
+Puedes usar empaquetador como vite pero debe ser con js vanilla, tu debes de crear tu propia puerta de entrada a tu aplicacion.
+
+#Separar la prueba en distintos itos:
+	-> Recuperar un hecho aleatorio de gatos de la primera API
+
+	-> Recuperar la primera palabra del hecho
+
+	-> Muestra una imagen de un gato con la primera palabra
+
+
+#Acceder a las APIs a ver que hay
+	-> a veces te piden que busques tu mismo el endpoint dentro de la documentacion
+
+
+## 1 - npm install vite@latest -> instalamos vite y escogemos VANILLA o si dejan react->javascript+scw
+
+## 2 - npm install vitejs/plugin-react -> plugin para facilitar codigo en jsx/fastrefresh
+
+## 3 - npm install react react-dom -> dependencias de react
+
+## 4 - crear archivo vite.conif.js -> buscar en la docu de vite 
+
+## 5 - en index.html esta el script de main.js -> ese es el punto de entrada de tu app
+
+## 6 - main.js -> borramos todo y empezamos a configurar react
+
+## 7 - importamos createRoot de react-dom/client
+
+## 8 - const root -> createRoot ->  getelementbyid -> app
+
+## 9 - root.render -> renderizamos ahi
+
+## 10 - cambiamos main.js -> main.jsx y el script de index.html -> la pagina ya renderizamos
+
+## 11 - INSTALAR LINTER -> npm install standard -D
+
+## 12 - config linter en .json -> eslintConfig -> extends -> "./node_modules -> standard -> eslinrc.json
+
+## 13 - Creamos estructura -> /src -> App.jsx
+
+
