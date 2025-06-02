@@ -1,23 +1,30 @@
-import { useEffect, useState } from 'react'
+import './style.css'
+import { useCatImage } from './hooks/useCatImage.js'
+import { useCatFact } from './hooks/useCatFact.js'
 
-//Guardamos la ruta de la API en una template string
-const CAT_ENDPOINT_RANDOM_FACT =`https://catfact.ninja/fact`
-const CAT_ENDPOINT_IMAGE_URL = `https://cataas.com/cat/says/${firstWord}`
+const CAT_ENDPOINT_RANDOM_FACT = `https://catfact.ninja/fact`
 
 const App = () => {
-  //RECUPERAMOS UN HECHO
-  const [fact, setFact] = useState('something cat fact')
-	
-	useEffect(() => {
-		fetch(CAT_ENDPOINT_RANDOM_FACT)
-			.then(res => res.json())
+  const { fact, refreshFact } = useCatFact()
+  const { imageUrl } = useCatImage({ fact })
 
-	})
+  const handleRandomFact = async () => {
+    refreshFact()
+  }
 
   return (
     <main>
       <h2>app de gatitos</h2>
-			<p>{fact}</p>
+
+      {imageUrl && (
+        <img
+          src={imageUrl}
+          alt={`Image extracted useng de fits three words for ${fact}`}
+        />
+      )}
+      <button onClick={handleRandomFact}>Get new fact</button>
+      {fact && <p>{fact}</p>}
+
     </main>
   )
 }

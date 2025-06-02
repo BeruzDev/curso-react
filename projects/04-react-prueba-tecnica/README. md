@@ -3,16 +3,16 @@
 APIs: 
 
 - Fact Random: https://catfact.ninja/fact
-- Imagen random: https://cataas.com/cat/says/hello
+- Imagen random: https://cataas.com <- busca el endpoint adecuado
 
-Recupera un hecho aleatorio de gatos de la primera API y muestra una imagen de un gato con la primera palabra del hecho recuperado usando la segund API.
+Recupera un hecho aleatorio de gatos de la primera API y muestra una imagen de un gato con las primeras tres palabras del hecho recuperado usando la segund API.
 
 Puedes usar empaquetador como vite pero debe ser con js vanilla, tu debes de crear tu propia puerta de entrada a tu aplicacion.
 
 #Separar la prueba en distintos itos:
 	-> Recuperar un hecho aleatorio de gatos de la primera API
 
-	-> Recuperar la primera palabra del hecho
+	-> Recuperar las tres primeras palabras del hecho
 
 	-> Muestra una imagen de un gato con la primera palabra
 
