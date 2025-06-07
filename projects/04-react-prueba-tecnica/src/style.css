@@ -1,0 +1,39 @@
+body{
+  margin: 0;
+  padding: 5%;
+  border: 0;
+  background-color: #242424;
+}
+
+main{
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  margin: 0 auto;
+  max-width: 800px;
+  font-family: system-ui;
+  gap: 2rem;
+
+  img{
+    height: 250px;
+    width: auto;
+  }
+
+  button{
+    
+    border: 1px solid aliceblue;
+    background-color: transparent;
+    color: aliceblue;
+    border-radius: 10rem;
+    padding: .5rem;
+
+    &:hover{
+      cursor: pointer;
+      color: #6d6d6d;
+      border: 1px solid #6d6d6d;
+    }
+  }
+}
