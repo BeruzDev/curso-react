@@ -28,4 +28,17 @@ form{
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 32px;
+
+  .movie{
+    text-align: center;
+
+    h3, p{
+      margin: 0;
+    }
+
+    img{
+      border-radius: 8px;
+      margin-top: 16px;
+    }
+  }
 }

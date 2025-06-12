@@ -1,22 +1,28 @@
 import './App.css'
+import { useState } from 'react'
 import Movies from './components/Movies.jsx'
 import { useMovies } from './hooks/useMovies.js'
 import { useSearch } from './hooks/useSearch.js'
-import movieResults from './mocks/with-results.json'
 
 function App() {
-  const movies = movieResults.Search
-  const { movies: mappedMovies } = useMovies()
-  const { search, setSearch, error } = useSearch()
+  const [sort, setSort] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log({ search })
+  const { search, setSearch, error } = useSearch()
+  const { movies, loading, getMovies } = useMovies({ search, sort })
+
+  const handleSort = () => {
+    setSort(!sort)
   }
 
   const handleChange = (event) => {
     setSearch(event.target.value)
   }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    getMovies()
+  }
+
 
   return (
     <div className="page">
@@ -27,23 +33,23 @@ function App() {
             type="text"
             className="input"
             placeholder="Avengers, Star Wars, The Matrix..."
-            style={{border: '1px solid transparent', borderColor: error ? 'red' : 'transparent'}}
+            style={{
+              border: '1px solid transparent',
+              borderColor: error ? 'red' : 'transparent',
+            }}
             onChange={handleChange}
             value={search}
           />
           <button type="submit" className="button">
             Search
           </button>
+          <input type='checkbox' onChange={handleSort} checked={sort} />
         </form>
-        {error && <p style={{color: 'red'}}>{error}</p>}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </header>
 
       <main>
-        {movies.length > 0 ? (
-          <Movies mappedMovies={mappedMovies} />
-        ) : (
-          <NoResults />
-        )}
+        {loading ? <p>loading...</p> : <Movies movies={movies} />}
       </main>
     </div>
   )

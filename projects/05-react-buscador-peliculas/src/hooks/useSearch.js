@@ -19,7 +19,7 @@ export const useSearch = () => {
       setError('No se puede buscar una pelicula con numero')
       return
     }
-    if (search.length < 3) {
+    if (search.length < 4) {
       setError('No se puede buscar una pelicula con menos de tres caracteres')
       return
     }
