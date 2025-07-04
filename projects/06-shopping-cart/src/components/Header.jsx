@@ -1,10 +1,10 @@
 import Filters from './Filters.jsx'
 
-const Header = ({ changeFilters }) => {
+const Header = () => {
   return (
     <header>
       <h1>React Shop</h1>
-      <Filters changeFilters={changeFilters} />
+      <Filters />
     </header>
   )
 }

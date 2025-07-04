@@ -18,7 +18,7 @@ export const Products = ({ products }) => {
 							Rating - {product.rating} 
 						</div>
 						<div>
-							Stock - {product.stock}
+							Stock - {product.stock }
 						</div>
 						<div>
 							<button>
