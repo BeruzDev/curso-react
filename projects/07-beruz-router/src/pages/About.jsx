@@ -1,4 +1,5 @@
 import Link from '../components/Link.jsx'
+import './About.css'
 
 const About = () => {
   return (
@@ -8,6 +9,7 @@ const About = () => {
         <img
           src="https://albertcastro.vercel.app/assets/profile-img-BcaAk6xp.webp"
           alt="Foto de beruzdev"
+          className='profile-pic'
         />
         <p>
           Hola me llamo Albert Castro y estoy creando un clon de React Router.

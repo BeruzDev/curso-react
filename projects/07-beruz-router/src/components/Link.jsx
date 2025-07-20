@@ -1,5 +1,6 @@
 import { EVENTS } from '../consts/consts.js'
 
+
 export function navigate(href) {
   window.history.pushState({}, '', href)
 
