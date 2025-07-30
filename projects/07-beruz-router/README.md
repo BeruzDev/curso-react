@@ -7,7 +7,8 @@
 - [x] Crear componente <Router /> para hacerlo más declarativo
 - [x] Soportar ruta por defecto (404)
 - [x] Soportar rutas con parámetros
-- [] componente <Route /> para hacerlo declarativo
-- [] Lazy Loading de las rutas
+- [x] componente <Route /> para hacerlo declarativo
+- [x] Lazy Loading de las rutas
+- [x] Internacionalizacion de las rutas "i18n"
 - [] Testing
 - [] Publicar el paquete en NPM
