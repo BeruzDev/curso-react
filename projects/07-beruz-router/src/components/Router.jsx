@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Children } from 'react'
 import { match } from 'path-to-regexp'
 import { EVENTS } from '../consts/consts.js'
@@ -10,7 +9,7 @@ const Router = ({
   routes = [],
   defaultComponent: DefaultComponent = () => <h1>404</h1>,
 }) => {
-  const [currentPath, setCurrentPath] = useState(getCurrentPath())
+  const [currentPath, setCurrentPath] = useState(() => getCurrentPath())
 
   useEffect(() => {
     const onLocationChange = () => {

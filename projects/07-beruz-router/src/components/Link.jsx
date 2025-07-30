@@ -1,3 +1,4 @@
+import React from 'react'
 import { EVENTS } from '../consts/consts.js'
 
 
