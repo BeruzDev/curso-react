@@ -1,6 +1,6 @@
 {
   "name": "beruz-router",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -11,6 +11,12 @@
     },
     "./package.json": "./package.json"
   },
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
