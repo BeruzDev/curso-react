@@ -10,5 +10,5 @@
 - [x] componente <Route /> para hacerlo declarativo
 - [x] Lazy Loading de las rutas
 - [x] Internacionalizacion de las rutas "i18n"
-- [] Testing
-- [] Publicar el paquete en NPM
+- [x] Testing
+- [x] Publicar el paquete en NPM

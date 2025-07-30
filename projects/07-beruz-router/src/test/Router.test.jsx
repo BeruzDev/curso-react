@@ -1,13 +1,18 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { describe, it, expect, beforeEach, vi, beforeAll } from 'vitest'
 import { render, screen, cleanup, fireEvent } from '@testing-library/react'
-import { getCurrentPath } from '../utils.js'
-import  Router  from '../components/Router.jsx'
-import  Route  from '../components/Route.jsx'
-import  Link  from '../components/Link.jsx'
 
 vi.mock('../utils.js', () => ({
   getCurrentPath: vi.fn()
 }))
+
+let Router, Route, Link, getCurrentPath
+
+beforeAll(async () => {
+  Router = (await import('../components/Router.jsx')).default
+  Route = (await import('../components/Route.jsx')).default
+  Link = (await import('../components/Link.jsx')).default
+  getCurrentPath = (await import('../utils.js')).getCurrentPath
+})
 
 describe('Router', () => {
   
@@ -66,7 +71,7 @@ describe('Router', () => {
 
     // Click on the link
     const anchor = await screen.findByText(/Go to About/)
-    userEvent.click(anchor)
+    fireEvent.click(anchor)
 
     const aboutTitle = await screen.findByText('About')
 
