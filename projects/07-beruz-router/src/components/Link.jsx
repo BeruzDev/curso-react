@@ -1,7 +1,6 @@
 import React from 'react'
 import { EVENTS } from '../consts/consts.js'
 
-
 export function navigate(href) {
   window.history.pushState({}, '', href)
 
@@ -12,15 +11,16 @@ export function navigate(href) {
 
 const Link = ({ target, to, ...props }) => {
   const handleClick = (event) => {
-		const isMainEvent = event.button === 0 // <-- primary click (left click)
-		const isModifiedEvent = event.metaKey || event.altKey || event.ctrlKey || event.shiftKey // <- ctrl/shift + click
-		const isManageableEvent = target === undefined || target === '_self'
+    const isMainEvent = event.button === 0 // <-- primary click (left click)
+    const isModifiedEvent =
+      event.metaKey || event.altKey || event.ctrlKey || event.shiftKey // <- ctrl/shift + click
+    const isManageableEvent = target === undefined || target === '_self'
 
-		if( isMainEvent && isManageableEvent && !isModifiedEvent){
-			event.preventDefault()
-			navigate(to)
-		}
-	}
+    if (isMainEvent && isManageableEvent && !isModifiedEvent) {
+      event.preventDefault()
+      navigate(to)
+    }
+  }
 
   return <a onClick={handleClick} href={to} target={target} {...props} />
 }
