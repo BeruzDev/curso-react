@@ -29,7 +29,7 @@ export const TextArea = ({
       : { ...commonStyles, backgroundColor: '#e0e0e0ff' }
   
 	const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-
+    onChange(event.target.value)
 	}
 	
 
