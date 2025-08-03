@@ -7,6 +7,8 @@ import { AUTO_LANGUAGE } from './constants'
 import { LanguageSelector } from './components/LanguageSelector.tsx'
 import { SectionType } from './type.d'
 import { TextArea } from './components/TextArea.tsx'
+import { useEffect } from 'react'
+import { translate } from './services/translate.ts'
 
 function App() {
   const {
@@ -21,6 +23,15 @@ function App() {
     setResult,
     interchangeLanguages,
   } = useStore()
+
+  useEffect(() => {
+    if (fromText === '') return
+    translate({ fromLanguage, toLanguage, text: fromText })
+      .then(setResult)
+      .catch(() => {
+        setResult('Error')
+      })
+  }, [fromText, fromLanguage, toLanguage])
 
   return (
     <Container fluid>
@@ -42,7 +53,7 @@ function App() {
           </Stack>
         </Col>
 
-        <Col xs='auto'>
+        <Col xs="auto">
           <Button
             variant="link"
             disabled={fromLanguage === AUTO_LANGUAGE}
