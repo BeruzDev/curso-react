@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import { SwitchIcon } from './components/Icons.tsx'
-import { useStore } from './hooks/useStore'
+import { useStore } from './hooks/useStore.ts'
+import { useDebounce } from './hooks/useDebounce.ts'
 import { Container, Row, Col, Button, Stack } from 'react-bootstrap'
 import { AUTO_LANGUAGE } from './constants'
 import { LanguageSelector } from './components/LanguageSelector.tsx'
@@ -24,14 +25,32 @@ function App() {
     interchangeLanguages,
   } = useStore()
 
+  const devouncedFromText = useDebounce(fromText, 300)
+
   useEffect(() => {
-    if (fromText === '') return
-    translate({ fromLanguage, toLanguage, text: fromText })
-      .then(setResult)
-      .catch(() => {
-        setResult('Error')
+    if (devouncedFromText === '') {
+      setResult('')
+      return
+    }
+
+    let isCancelled = false
+
+    translate({ fromLanguage, toLanguage, text: devouncedFromText })
+      .then((translatedText) => {
+        if (!isCancelled) {
+          setResult(translatedText)
+        }
       })
-  }, [fromText, fromLanguage, toLanguage])
+      .catch(() => {
+        if (!isCancelled) {
+          setResult('Error')
+        }
+      })
+
+    return () => {
+      isCancelled = true
+    }
+  }, [devouncedFromText, fromLanguage, toLanguage])
 
   return (
     <Container fluid>

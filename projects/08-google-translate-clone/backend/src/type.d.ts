@@ -1,4 +1,4 @@
-import {AUTO_LANGUAGE, type SUPORTED_LANGUAGES} from './constants'
+import {AUTO_LANGUAGE, type SUPORTED_LANGUAGES} from './constants.ts'
 
 export type Language = keyof typeof SUPORTED_LANGUAGES
 export type AutoLanguage = typeof AUTO_LANGUAGE

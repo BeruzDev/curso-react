@@ -8,13 +8,13 @@ interface Props {
   value: string
 }
 
+const commonStyles = { border: 0, height: '200px', resize: 'none' }
+
 const getPlaceholder = ({type, loading}: {type: SectionType, loading?: boolean}) => {
 	if (type === SectionType.From) return 'Enter a text'
 	if (loading === true) return 'Translating...'
 	return 'Translate'
 }
-
-const commonStyles = { border: 0, height: '200px', resize: 'none' }
 
 export const TextArea = ({
   type,
@@ -32,8 +32,7 @@ export const TextArea = ({
     onChange(event.target.value)
 	}
 	
-
-			return (
+	return (
     <Form.Control
       autoFocus={type === SectionType.From}
       as="textarea"
