@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import { SwitchIcon } from './components/Icons.tsx'
+import { SwitchIcon, ClipboardIcon, SpeakerIcon } from './components/Icons.tsx'
 import { useStore } from './hooks/useStore.ts'
 import { useDebounce } from './hooks/useDebounce.ts'
 import { Container, Row, Col, Button, Stack } from 'react-bootstrap'
@@ -52,9 +52,28 @@ function App() {
     }
   }, [devouncedFromText, fromLanguage, toLanguage])
 
+  const handleClipboard = () => {
+    navigator.clipboard.writeText(result).catch(() => {})
+  }
+
+  const handleSpeak = () => {
+    if (!result) return
+
+    const utterance = new SpeechSynthesisUtterance(result)
+    utterance.lang = toLanguage.includes('-')
+      ? toLanguage
+      : `${toLanguage}-${toLanguage.toUpperCase()}`
+
+    const voices = speechSynthesis.getVoices()
+    const voice = voices.find((v) => v.lang.startsWith(toLanguage))
+    if (voice) utterance.voice = voice
+
+    speechSynthesis.speak(utterance)
+  }
+
   return (
     <Container fluid>
-      <h2>Google translate</h2>
+      <h2>BeruzDev Translate</h2>
 
       <Row>
         <Col>
@@ -91,12 +110,31 @@ function App() {
               value={toLanguage}
               onChange={setToLanguage}
             />
-            <TextArea
-              type={SectionType.To}
-              value={result}
-              onChange={setResult}
-              loading={loading}
-            />
+            <div style={{ position: 'relative' }}>
+              <TextArea
+                type={SectionType.To}
+                value={result}
+                onChange={setResult}
+                loading={loading}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  bottom: 0,
+                  opacity: 0.5,
+                  display: 'flex',
+                }}
+              >
+                <Button variant="link" onClick={handleClipboard}>
+                  <ClipboardIcon />
+                </Button>
+
+                <Button variant="link" onClick={handleSpeak}>
+                  <SpeakerIcon />
+                </Button>
+              </div>
+            </div>
           </Stack>
         </Col>
       </Row>
