@@ -17,7 +17,8 @@ Los pasos a seguir:
 - [x] Provide the option to color rows as shown in the example.
     -Creamos un estado para saber si las filas tienen color de fondo o no, y una funcion para invertir valores, lo pasamos al componente usersList. El backgroundcolor sera de color -> si el indx es % 2 ? sera un color : otro para alternar entre filas, y luego si el estado es true ? el style = backgroundcolor -> color : transparente
 
-- [] Allow the data to be sorted by country as demonstrated in the example.
+- [x] Allow the data to be sorted by country as demonstrated in the example.
+    - Usamos el estado user y lo ordenamos con [...user].sort() o con user.toSorted(), para no mutar el array original y ordenar una copia del array, si lo mutas nunca vuelve a desordenarse, y luego simplemente hacemos una funcion con prevState => !prevState y lo aplicamos al boton.
 
 - [] Enable the ability to delete a row as shown in the example.
 
