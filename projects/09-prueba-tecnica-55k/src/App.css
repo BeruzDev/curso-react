@@ -4,3 +4,24 @@
   text-align: center;
   width: 100%;
 }
+
+.table--showColors tr:nth-child(even) {
+  background: #333;
+}
+
+.table--showColors tr:nth-child(odd) {
+  background: #666;
+}
+
+header {
+  display: flex;
+  gap: 7px;
+  margin-bottom: 48px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.pointer {
+  cursor: crosshair;
+}

@@ -20,14 +20,22 @@ Los pasos a seguir:
 - [x] Allow the data to be sorted by country as demonstrated in the example.
     - Usamos el estado user y lo ordenamos con [...user].sort() o con user.toSorted(), para no mutar el array original y ordenar una copia del array, si lo mutas nunca vuelve a desordenarse, y luego simplemente hacemos una funcion con prevState => !prevState y lo aplicamos al boton.
 
-- [] Enable the ability to delete a row as shown in the example.
+- [x] Enable the ability to delete a row as shown in the example.
+    -Lo primero es que en el .map() de listsOfUsers.jsx debe utilizarse un elemento unico como key y no el index, usar el user.email. HandleDelete -> guardamos en una const filteredUsers con user.filter() -> siempre que el usuario tenga un email diferente del email que le pasamos por parametro. -> setUsers(filteredUsers).
 
-- [] Implement a feature that allows the user to restore the initial state, meaning that all deleted rows will be recovered.
+- [x] Implement a feature that allows the user to restore the initial state, meaning that all deleted rows will be recovered.
+    -En un useRef() guardamos el valor users que queremos que se utilice entre renderizados, pero que al cambiar no vuelva a renderizar el componente. Lo guardamos en el useEffect para guardar el primer estado original con .current y asi ya lo tenemos guardado.
 
-- [] Handle any potential errors that may occur.
+- [x] Handle any potential errors that may occur.
+    -Se ha ido haciendo sobre la marcha:
+        -Utilizar para la key del .map() un elemento unico como el email y no el index
+        -Ordenar el array sin mutarlo para poder volver al estado previo.
+        -Guardar el estado inicial en un useRef() para resetear al estado sin volver a renderizar.
 
-- [] Implement a feature that allows the user to filter the data by country.
+- [x] Implement a feature that allows the user to filter the data by country.
+    -Recogemos el valor del input con .target.value -> lo guardamos en un estado -> creamos una constante filteredUsers que devuelve usuarios filtrados por el valor del estado que guarda el pais introducido por el usuario y lo comparamos con user.location.country
 
-- [] Avoid sorting users again the data when the user is changing filter by country.
+- [x] Avoid sorting users again the data when the user is changing filter by country.
+    -Usando el useMemo(), evitamos que se vuelva a recalcular a no ser que cambien las dependencias del mismo hook. Primero manejamos el filtrado por pais, si no hay filtrado devolvemos los usuarios tal cual, y luego esos usuarios los ordenamos, en caso de que el estado de orderByCountry sea true, sino se pasan al componente tal y como esta.
 
 - [] Sort by clicking on the column header.
