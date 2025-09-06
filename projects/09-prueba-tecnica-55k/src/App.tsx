@@ -9,6 +9,10 @@ function App() {
   const [sorting, setSorting] = useState<SortBy>(SortBy.NONE)
   const [filterCountry, setFilterCountry] = useState<string | null>(null)
 
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+
   const originalUsers = useRef<User[]>([])
 
   const toggleColors = () => {
@@ -16,7 +20,8 @@ function App() {
   }
 
   const toggleSortByCountry = () => {
-    const newSortingValue = sorting === SortBy.NONE ? SortBy.COUNTRY : SortBy.NONE 
+    const newSortingValue =
+      sorting === SortBy.NONE ? SortBy.COUNTRY : SortBy.NONE
     setSorting(newSortingValue)
   }
 
@@ -34,16 +39,32 @@ function App() {
   }
 
   useEffect(() => {
-    fetch('https://randomuser.me/api?results=100')
-      .then(async (res) => await res.json())
+    setLoading(true)
+    setError(false)
+
+    fetch(
+      `https://randomuser.me/api?results=10&seed=beruzdev&page=${currentPage}`
+    )
+      .then(async (res) => {
+        if (!res.ok) throw new Error('Error fetching users')
+        return await res.json()
+      })
       .then((res) => {
-        setUsers(res.results)
-        originalUsers.current = res.results
+        setUsers(prevUsers => {
+          const newUsers = prevUsers.concat(res.results)
+          originalUsers.current = newUsers
+          return newUsers
+        })
+        
       })
       .catch((err) => {
+        setError(err)
         console.error(err)
       })
-  }, [])
+      .finally(() => {
+        setLoading(false)
+      })
+  }, [currentPage])
 
   const visibleUsers = useMemo(() => {
     return filterCountry !== null && filterCountry.length > 0
@@ -56,21 +77,21 @@ function App() {
   }, [filterCountry, users])
 
   const sortedUsers = useMemo(() => {
-    if(sorting === SortBy.NONE) return visibleUsers
+    if (sorting === SortBy.NONE) return visibleUsers
 
-    if(sorting === SortBy.COUNTRY) {
+    if (sorting === SortBy.COUNTRY) {
       return visibleUsers.toSorted((a, b) => {
         return a.location.country.localeCompare(b.location.country)
       })
     }
 
-    if(sorting === SortBy.NAME) {
+    if (sorting === SortBy.NAME) {
       return visibleUsers.toSorted((a, b) => {
         return a.name.first.localeCompare(b.name.first)
       })
     }
 
-    if(sorting === SortBy.LAST) {
+    if (sorting === SortBy.LAST) {
       return visibleUsers.toSorted((a, b) => {
         return a.name.last.localeCompare(b.name.last)
       })
@@ -87,7 +108,9 @@ function App() {
         <button onClick={toggleColors}>Colorear filas</button>
 
         <button onClick={toggleSortByCountry}>
-          {sorting === SortBy.COUNTRY ? 'Desordenar por país' : 'Ordenar por país'}
+          {sorting === SortBy.COUNTRY
+            ? 'Desordenar por país'
+            : 'Ordenar por país'}
         </button>
 
         <button onClick={handleReset}>Resetear estado</button>
@@ -102,12 +125,26 @@ function App() {
       </header>
 
       <main>
-        <UsersList
-          changeSorting={handleChangeSort}
-          deleteUser={handleDelete}
-          showColors={showColors}
-          users={sortedUsers}
-        />
+        {users.length > 0 && (
+          <UsersList
+            changeSorting={handleChangeSort}
+            deleteUser={handleDelete}
+            showColors={showColors}
+            users={sortedUsers}
+          />
+        )}
+
+        {loading && <strong>Cargando...</strong>}
+
+        {!loading && error && <p>Ha ocurrido un error</p>}
+
+        {!loading && !error && users.length === 0 && <p>No hay usuarios</p>}
+
+        {!loading && !error && users.length > 0 && (
+          <button onClick={() => setCurrentPage(currentPage + 1)}>
+            Cargar más
+          </button>
+        )}
       </main>
     </div>
   )
