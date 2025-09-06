@@ -57,7 +57,7 @@ function App() {
 
   const sortedUsers = useMemo(() => {
     if(sorting === SortBy.NONE) return visibleUsers
-    
+
     if(sorting === SortBy.COUNTRY) {
       return visibleUsers.toSorted((a, b) => {
         return a.location.country.localeCompare(b.location.country)
@@ -75,6 +75,8 @@ function App() {
         return a.name.last.localeCompare(b.name.last)
       })
     }
+
+    return visibleUsers
   }, [visibleUsers, sorting])
 
   return (

@@ -38,4 +38,5 @@ Los pasos a seguir:
 - [x] Avoid sorting users again the data when the user is changing filter by country.
     -Usando el useMemo(), evitamos que se vuelva a recalcular a no ser que cambien las dependencias del mismo hook. Primero manejamos el filtrado por pais, si no hay filtrado devolvemos los usuarios tal cual, y luego esos usuarios los ordenamos, en caso de que el estado de orderByCountry sea true, sino se pasan al componente tal y como esta.
 
-- [] Sort by clicking on the column header.
+- [x] Sort by clicking on the column header.
+    -Tipamos SortBy y en la funcion sortedUsers hacemos distintos if para cada caso.
