@@ -1,4 +1,9 @@
+const delay = async (ms: number) => await new Promise(resolve => setTimeout(resolve, ms))
+
 export const fetchUsers = async (page: number) => {
+  await delay(300)
+  throw new Error('Error fetching users')
+
   return await fetch(
     `https://randomuser.me/api?results=10&seed=beruzdev&page=${page}`
   )

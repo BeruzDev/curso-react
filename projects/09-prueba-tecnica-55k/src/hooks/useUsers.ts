@@ -14,10 +14,11 @@ export const useUsers = () => {
   } = useInfiniteQuery<{ nextCursor?: number, users: User[] }>({
     queryKey: ['users'],
     queryFn: ({ pageParam }) => fetchUsers(pageParam as number), // ← Cast a number
-    getNextPageParam: (lastPage) => {
-      return lastPage.nextCursor
-    },
+    getNextPageParam: (lastPage) => lastPage.nextCursor,
     initialPageParam: 1,
+    refetchOnWindowFocus: false,
+    staleTime: 1000 * 3,
+    retry: 1,
   })
 
   return {
