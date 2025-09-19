@@ -20,22 +20,26 @@ Una aplicación interactiva de quiz para evaluar conocimientos de JavaScript, co
 ## 🛠️ Tecnologías Utilizadas
 
 ### Frontend
+
 - **React 18** - Biblioteca principal para UI
 - **TypeScript** - Tipado estático para mejor desarrollo
 - **Vite** - Build tool y dev server ultra-rápido
 - **Material-UI (MUI)** - Componentes y sistema de diseño
 
 ### Estado y Datos
+
 - **Zustand** - Gestión de estado global minimalista
 - **Zustand Persist** - Persistencia automática del estado
 - **JSON local** - Base de datos de preguntas
 
 ### Estilo y UX
+
 - **react-syntax-highlighter** - Highlighting de código JavaScript
 - **MUI Icons** - Iconografía consistente
 - **CSS-in-JS** - Estilos con sx prop de MUI
 
 ### Herramientas de Desarrollo
+
 - **ESLint** - Linting y calidad de código
 - **pnpm** - Gestor de paquetes eficiente
 
@@ -51,12 +55,12 @@ src/
 ```
 
 ### Patrones Implementados
+
 - **Custom Hooks** para lógica reutilizable
 - **TypeScript Interfaces** para tipado fuerte
 - **Immutable Updates** con structuredClone
 - **Component Composition** para reutilización
 - **State Management** centralizado con Zustand
-
 
 ## 🤝 Contribuir
 
