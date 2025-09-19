@@ -521,7 +521,7 @@
     "code": "const obj = {a: 'foo', b: 'bar'};\nfor (let key in obj) {\n console.log(key);\n}",
     "answers": [
       "'foo', 'bar'",
-      "{'a', 'b'}",
+      "a, b",
       "SyntaxError",
       "undefined"
     ],
