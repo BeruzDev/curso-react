@@ -10,7 +10,7 @@ const Start = () => {
     fetchQuestions(LIMIT_QUESTIONS)
   }
   return (
-    <Button onClick={handleClick} variant="contained">
+    <Button onClick={handleClick}>
       Comenzar
     </Button>
   )
