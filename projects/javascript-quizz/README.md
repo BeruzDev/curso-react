@@ -1,69 +1,75 @@
-# React + TypeScript + Vite
+# 🧠 JavaScript Quiz App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación interactiva de quiz para evaluar conocimientos de JavaScript, construida con React y TypeScript. Ideal para desarrolladores que quieren poner a prueba su comprensión de conceptos avanzados de JavaScript.
 
-Currently, two official plugins are available:
+## 🚀 Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Ver Demo en Vivo](tu-url-de-deploy) <!-- Actualiza con tu URL de deployment -->
 
-## Expanding the ESLint configuration
+## 📋 Características
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ✅ **50 preguntas** de JavaScript con código real
+- 🎯 **Feedback inmediato** - respuestas correctas/incorrectas con colores
+- 🔄 **Navegación fluida** entre preguntas
+- 💾 **Estado persistente** - conserva progreso al recargar
+- 🎲 **Preguntas aleatorias** en cada sesión
+- 📱 **Diseño responsive** para móviles y desktop
+- 🌙 **Tema oscuro** para mejor experiencia visual
+- 🎨 **Sintaxis highlighting** para código JavaScript
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tecnologías Utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Frontend
+- **React 18** - Biblioteca principal para UI
+- **TypeScript** - Tipado estático para mejor desarrollo
+- **Vite** - Build tool y dev server ultra-rápido
+- **Material-UI (MUI)** - Componentes y sistema de diseño
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Estado y Datos
+- **Zustand** - Gestión de estado global minimalista
+- **Zustand Persist** - Persistencia automática del estado
+- **JSON local** - Base de datos de preguntas
+
+### Estilo y UX
+- **react-syntax-highlighter** - Highlighting de código JavaScript
+- **MUI Icons** - Iconografía consistente
+- **CSS-in-JS** - Estilos con sx prop de MUI
+
+### Herramientas de Desarrollo
+- **ESLint** - Linting y calidad de código
+- **pnpm** - Gestor de paquetes eficiente
+
+## 🏗️ Arquitectura
+
+```
+src/
+├── components/          # Componentes React
+├── store/              # Estado global (Zustand)
+├── types.d.ts          # Definiciones de TypeScript
+├── hooks/              # Hooks personalizados
+└── assets/             # Recursos estáticos
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Patrones Implementados
+- **Custom Hooks** para lógica reutilizable
+- **TypeScript Interfaces** para tipado fuerte
+- **Immutable Updates** con structuredClone
+- **Component Composition** para reutilización
+- **State Management** centralizado con Zustand
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🤝 Contribuir
+
+1. Fork el proyecto
+2. Crea tu rama de feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 👨‍💻 Autor
+
+**BeruzDev** - [GitHub](https://github.com/BeruzDev)
+
+---
+
+⭐ Si te gustó este proyecto, ¡dale una estrella en GitHub!
