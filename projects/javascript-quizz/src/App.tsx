@@ -19,7 +19,7 @@ function App() {
         >
           <JavaScriptLogo />
           <Typography variant="h2" component="h1" sx={{ py: 4 }}>
-            JavaScript Quizz
+            JavaScript Quiz
           </Typography>
         </Stack>
 
